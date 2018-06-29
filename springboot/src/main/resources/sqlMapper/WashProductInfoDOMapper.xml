@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.org.springboot.mapper.WashProductInfoDOMapper" >
+  <resultMap id="BaseResultMap" type="com.org.springboot.model.db.WashProductInfoDO" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="member_id" property="memberId" jdbcType="VARCHAR" />
+    <result column="member_trans_date" property="memberTransDate" jdbcType="TIMESTAMP" />
+    <result column="terminal_id" property="terminalId" jdbcType="VARCHAR" />
+    <result column="product_id" property="productId" jdbcType="VARCHAR" />
+    <result column="function_id" property="functionId" jdbcType="VARCHAR" />
+    <result column="member_order_id" property="memberOrderId" jdbcType="VARCHAR" />
+    <result column="industry_type" property="industryType" jdbcType="VARCHAR" />
+    <result column="id_holder" property="idHolder" jdbcType="VARCHAR" />
+    <result column="id_card_no" property="idCardNo" jdbcType="VARCHAR" />
+    <result column="id_card_type" property="idCardType" jdbcType="VARCHAR" />
+    <result column="cnt_member" property="cntMember" jdbcType="VARCHAR" />
+    <result column="loan_time" property="loanTime" jdbcType="VARCHAR" />
+    <result column="overdue_day" property="overdueDay" jdbcType="VARCHAR" />
+    <result column="overdue_amt" property="overdueAmt" jdbcType="VARCHAR" />
+    <result column="cnt1" property="cnt1" jdbcType="INTEGER" />
+    <result column="cnt0" property="cnt0" jdbcType="INTEGER" />
+    <result column="cum_default_days" property="cumDefaultDays" jdbcType="VARCHAR" />
+    <result column="tag" property="tag" jdbcType="VARCHAR" />
+    <result column="trade_no" property="tradeNo" jdbcType="VARCHAR" />
+    <result column="is_fee" property="isFee" jdbcType="VARCHAR" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="message" property="message" jdbcType="VARCHAR" />
+    <result column="trans_id" property="transId" jdbcType="VARCHAR" />
+    <result column="query_time" property="queryTime" jdbcType="INTEGER" />
+    <result column="result" property="result" jdbcType="VARCHAR" />
+    <result column="errorMsg" property="errormsg" jdbcType="VARCHAR" />
+    <result column="mark" property="mark" jdbcType="VARCHAR" />
+    <result column="start_day" property="startDay" jdbcType="TIMESTAMP" />
+    <result column="last_day" property="lastDay" jdbcType="TIMESTAMP" />
+    <result column="max_money" property="maxMoney" jdbcType="VARCHAR" />
+    <result column="cnt_bad_member" property="cntBadMember" jdbcType="INTEGER" />
+    <result column="cnt_good_member" property="cntGoodMember" jdbcType="INTEGER" />
+    <result column="abnormal" property="abnormal" jdbcType="INTEGER" />
+    <result column="active" property="active" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="first_day" property="firstDay" jdbcType="TIMESTAMP" />
+    <result column="max_days" property="maxDays" jdbcType="VARCHAR" />
+    <result column="tag_desc" property="tagDesc" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, member_id, member_trans_date, terminal_id, product_id, function_id, member_order_id, 
+    industry_type, id_holder, id_card_no, id_card_type, cnt_member, loan_time, overdue_day, 
+    overdue_amt, cnt1, cnt0, cum_default_days, tag, trade_no, is_fee, code, message, 
+    trans_id, query_time, result, errorMsg, mark, start_day, last_day, max_money, cnt_bad_member, 
+    cnt_good_member, abnormal, active, create_time, update_time, first_day, max_days, 
+    tag_desc
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_wash_product_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_wash_product_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.org.springboot.model.db.WashProductInfoDO" >
+    insert into t_wash_product_info (id, member_id, member_trans_date, 
+      terminal_id, product_id, function_id, 
+      member_order_id, industry_type, id_holder, 
+      id_card_no, id_card_type, cnt_member, 
+      loan_time, overdue_day, overdue_amt, 
+      cnt1, cnt0, cum_default_days, 
+      tag, trade_no, is_fee, 
+      code, message, trans_id, 
+      query_time, result, errorMsg, 
+      mark, start_day, last_day, 
+      max_money, cnt_bad_member, cnt_good_member, 
+      abnormal, active, create_time, 
+      update_time, first_day, max_days, 
+      tag_desc)
+    values (#{id,jdbcType=BIGINT}, #{memberId,jdbcType=VARCHAR}, #{memberTransDate,jdbcType=TIMESTAMP}, 
+      #{terminalId,jdbcType=VARCHAR}, #{productId,jdbcType=VARCHAR}, #{functionId,jdbcType=VARCHAR}, 
+      #{memberOrderId,jdbcType=VARCHAR}, #{industryType,jdbcType=VARCHAR}, #{idHolder,jdbcType=VARCHAR}, 
+      #{idCardNo,jdbcType=VARCHAR}, #{idCardType,jdbcType=VARCHAR}, #{cntMember,jdbcType=VARCHAR}, 
+      #{loanTime,jdbcType=VARCHAR}, #{overdueDay,jdbcType=VARCHAR}, #{overdueAmt,jdbcType=VARCHAR}, 
+      #{cnt1,jdbcType=INTEGER}, #{cnt0,jdbcType=INTEGER}, #{cumDefaultDays,jdbcType=VARCHAR}, 
+      #{tag,jdbcType=VARCHAR}, #{tradeNo,jdbcType=VARCHAR}, #{isFee,jdbcType=VARCHAR}, 
+      #{code,jdbcType=VARCHAR}, #{message,jdbcType=VARCHAR}, #{transId,jdbcType=VARCHAR}, 
+      #{queryTime,jdbcType=INTEGER}, #{result,jdbcType=VARCHAR}, #{errormsg,jdbcType=VARCHAR}, 
+      #{mark,jdbcType=VARCHAR}, #{startDay,jdbcType=TIMESTAMP}, #{lastDay,jdbcType=TIMESTAMP}, 
+      #{maxMoney,jdbcType=VARCHAR}, #{cntBadMember,jdbcType=INTEGER}, #{cntGoodMember,jdbcType=INTEGER}, 
+      #{abnormal,jdbcType=INTEGER}, #{active,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{firstDay,jdbcType=TIMESTAMP}, #{maxDays,jdbcType=VARCHAR}, 
+      #{tagDesc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.org.springboot.model.db.WashProductInfoDO" >
+    insert into t_wash_product_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="memberId != null" >
+        member_id,
+      </if>
+      <if test="memberTransDate != null" >
+        member_trans_date,
+      </if>
+      <if test="terminalId != null" >
+        terminal_id,
+      </if>
+      <if test="productId != null" >
+        product_id,
+      </if>
+      <if test="functionId != null" >
+        function_id,
+      </if>
+      <if test="memberOrderId != null" >
+        member_order_id,
+      </if>
+      <if test="industryType != null" >
+        industry_type,
+      </if>
+      <if test="idHolder != null" >
+        id_holder,
+      </if>
+      <if test="idCardNo != null" >
+        id_card_no,
+      </if>
+      <if test="idCardType != null" >
+        id_card_type,
+      </if>
+      <if test="cntMember != null" >
+        cnt_member,
+      </if>
+      <if test="loanTime != null" >
+        loan_time,
+      </if>
+      <if test="overdueDay != null" >
+        overdue_day,
+      </if>
+      <if test="overdueAmt != null" >
+        overdue_amt,
+      </if>
+      <if test="cnt1 != null" >
+        cnt1,
+      </if>
+      <if test="cnt0 != null" >
+        cnt0,
+      </if>
+      <if test="cumDefaultDays != null" >
+        cum_default_days,
+      </if>
+      <if test="tag != null" >
+        tag,
+      </if>
+      <if test="tradeNo != null" >
+        trade_no,
+      </if>
+      <if test="isFee != null" >
+        is_fee,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="message != null" >
+        message,
+      </if>
+      <if test="transId != null" >
+        trans_id,
+      </if>
+      <if test="queryTime != null" >
+        query_time,
+      </if>
+      <if test="result != null" >
+        result,
+      </if>
+      <if test="errormsg != null" >
+        errorMsg,
+      </if>
+      <if test="mark != null" >
+        mark,
+      </if>
+      <if test="startDay != null" >
+        start_day,
+      </if>
+      <if test="lastDay != null" >
+        last_day,
+      </if>
+      <if test="maxMoney != null" >
+        max_money,
+      </if>
+      <if test="cntBadMember != null" >
+        cnt_bad_member,
+      </if>
+      <if test="cntGoodMember != null" >
+        cnt_good_member,
+      </if>
+      <if test="abnormal != null" >
+        abnormal,
+      </if>
+      <if test="active != null" >
+        active,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="firstDay != null" >
+        first_day,
+      </if>
+      <if test="maxDays != null" >
+        max_days,
+      </if>
+      <if test="tagDesc != null" >
+        tag_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="memberId != null" >
+        #{memberId,jdbcType=VARCHAR},
+      </if>
+      <if test="memberTransDate != null" >
+        #{memberTransDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="terminalId != null" >
+        #{terminalId,jdbcType=VARCHAR},
+      </if>
+      <if test="productId != null" >
+        #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="functionId != null" >
+        #{functionId,jdbcType=VARCHAR},
+      </if>
+      <if test="memberOrderId != null" >
+        #{memberOrderId,jdbcType=VARCHAR},
+      </if>
+      <if test="industryType != null" >
+        #{industryType,jdbcType=VARCHAR},
+      </if>
+      <if test="idHolder != null" >
+        #{idHolder,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardNo != null" >
+        #{idCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardType != null" >
+        #{idCardType,jdbcType=VARCHAR},
+      </if>
+      <if test="cntMember != null" >
+        #{cntMember,jdbcType=VARCHAR},
+      </if>
+      <if test="loanTime != null" >
+        #{loanTime,jdbcType=VARCHAR},
+      </if>
+      <if test="overdueDay != null" >
+        #{overdueDay,jdbcType=VARCHAR},
+      </if>
+      <if test="overdueAmt != null" >
+        #{overdueAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="cnt1 != null" >
+        #{cnt1,jdbcType=INTEGER},
+      </if>
+      <if test="cnt0 != null" >
+        #{cnt0,jdbcType=INTEGER},
+      </if>
+      <if test="cumDefaultDays != null" >
+        #{cumDefaultDays,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null" >
+        #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeNo != null" >
+        #{tradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="isFee != null" >
+        #{isFee,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="message != null" >
+        #{message,jdbcType=VARCHAR},
+      </if>
+      <if test="transId != null" >
+        #{transId,jdbcType=VARCHAR},
+      </if>
+      <if test="queryTime != null" >
+        #{queryTime,jdbcType=INTEGER},
+      </if>
+      <if test="result != null" >
+        #{result,jdbcType=VARCHAR},
+      </if>
+      <if test="errormsg != null" >
+        #{errormsg,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null" >
+        #{mark,jdbcType=VARCHAR},
+      </if>
+      <if test="startDay != null" >
+        #{startDay,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastDay != null" >
+        #{lastDay,jdbcType=TIMESTAMP},
+      </if>
+      <if test="maxMoney != null" >
+        #{maxMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="cntBadMember != null" >
+        #{cntBadMember,jdbcType=INTEGER},
+      </if>
+      <if test="cntGoodMember != null" >
+        #{cntGoodMember,jdbcType=INTEGER},
+      </if>
+      <if test="abnormal != null" >
+        #{abnormal,jdbcType=INTEGER},
+      </if>
+      <if test="active != null" >
+        #{active,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firstDay != null" >
+        #{firstDay,jdbcType=TIMESTAMP},
+      </if>
+      <if test="maxDays != null" >
+        #{maxDays,jdbcType=VARCHAR},
+      </if>
+      <if test="tagDesc != null" >
+        #{tagDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.org.springboot.model.db.WashProductInfoDO" >
+    update t_wash_product_info
+    <set >
+      <if test="memberId != null" >
+        member_id = #{memberId,jdbcType=VARCHAR},
+      </if>
+      <if test="memberTransDate != null" >
+        member_trans_date = #{memberTransDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="terminalId != null" >
+        terminal_id = #{terminalId,jdbcType=VARCHAR},
+      </if>
+      <if test="productId != null" >
+        product_id = #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="functionId != null" >
+        function_id = #{functionId,jdbcType=VARCHAR},
+      </if>
+      <if test="memberOrderId != null" >
+        member_order_id = #{memberOrderId,jdbcType=VARCHAR},
+      </if>
+      <if test="industryType != null" >
+        industry_type = #{industryType,jdbcType=VARCHAR},
+      </if>
+      <if test="idHolder != null" >
+        id_holder = #{idHolder,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardNo != null" >
+        id_card_no = #{idCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardType != null" >
+        id_card_type = #{idCardType,jdbcType=VARCHAR},
+      </if>
+      <if test="cntMember != null" >
+        cnt_member = #{cntMember,jdbcType=VARCHAR},
+      </if>
+      <if test="loanTime != null" >
+        loan_time = #{loanTime,jdbcType=VARCHAR},
+      </if>
+      <if test="overdueDay != null" >
+        overdue_day = #{overdueDay,jdbcType=VARCHAR},
+      </if>
+      <if test="overdueAmt != null" >
+        overdue_amt = #{overdueAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="cnt1 != null" >
+        cnt1 = #{cnt1,jdbcType=INTEGER},
+      </if>
+      <if test="cnt0 != null" >
+        cnt0 = #{cnt0,jdbcType=INTEGER},
+      </if>
+      <if test="cumDefaultDays != null" >
+        cum_default_days = #{cumDefaultDays,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null" >
+        tag = #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeNo != null" >
+        trade_no = #{tradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="isFee != null" >
+        is_fee = #{isFee,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="message != null" >
+        message = #{message,jdbcType=VARCHAR},
+      </if>
+      <if test="transId != null" >
+        trans_id = #{transId,jdbcType=VARCHAR},
+      </if>
+      <if test="queryTime != null" >
+        query_time = #{queryTime,jdbcType=INTEGER},
+      </if>
+      <if test="result != null" >
+        result = #{result,jdbcType=VARCHAR},
+      </if>
+      <if test="errormsg != null" >
+        errorMsg = #{errormsg,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null" >
+        mark = #{mark,jdbcType=VARCHAR},
+      </if>
+      <if test="startDay != null" >
+        start_day = #{startDay,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastDay != null" >
+        last_day = #{lastDay,jdbcType=TIMESTAMP},
+      </if>
+      <if test="maxMoney != null" >
+        max_money = #{maxMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="cntBadMember != null" >
+        cnt_bad_member = #{cntBadMember,jdbcType=INTEGER},
+      </if>
+      <if test="cntGoodMember != null" >
+        cnt_good_member = #{cntGoodMember,jdbcType=INTEGER},
+      </if>
+      <if test="abnormal != null" >
+        abnormal = #{abnormal,jdbcType=INTEGER},
+      </if>
+      <if test="active != null" >
+        active = #{active,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firstDay != null" >
+        first_day = #{firstDay,jdbcType=TIMESTAMP},
+      </if>
+      <if test="maxDays != null" >
+        max_days = #{maxDays,jdbcType=VARCHAR},
+      </if>
+      <if test="tagDesc != null" >
+        tag_desc = #{tagDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.org.springboot.model.db.WashProductInfoDO" >
+    update t_wash_product_info
+    set member_id = #{memberId,jdbcType=VARCHAR},
+      member_trans_date = #{memberTransDate,jdbcType=TIMESTAMP},
+      terminal_id = #{terminalId,jdbcType=VARCHAR},
+      product_id = #{productId,jdbcType=VARCHAR},
+      function_id = #{functionId,jdbcType=VARCHAR},
+      member_order_id = #{memberOrderId,jdbcType=VARCHAR},
+      industry_type = #{industryType,jdbcType=VARCHAR},
+      id_holder = #{idHolder,jdbcType=VARCHAR},
+      id_card_no = #{idCardNo,jdbcType=VARCHAR},
+      id_card_type = #{idCardType,jdbcType=VARCHAR},
+      cnt_member = #{cntMember,jdbcType=VARCHAR},
+      loan_time = #{loanTime,jdbcType=VARCHAR},
+      overdue_day = #{overdueDay,jdbcType=VARCHAR},
+      overdue_amt = #{overdueAmt,jdbcType=VARCHAR},
+      cnt1 = #{cnt1,jdbcType=INTEGER},
+      cnt0 = #{cnt0,jdbcType=INTEGER},
+      cum_default_days = #{cumDefaultDays,jdbcType=VARCHAR},
+      tag = #{tag,jdbcType=VARCHAR},
+      trade_no = #{tradeNo,jdbcType=VARCHAR},
+      is_fee = #{isFee,jdbcType=VARCHAR},
+      code = #{code,jdbcType=VARCHAR},
+      message = #{message,jdbcType=VARCHAR},
+      trans_id = #{transId,jdbcType=VARCHAR},
+      query_time = #{queryTime,jdbcType=INTEGER},
+      result = #{result,jdbcType=VARCHAR},
+      errorMsg = #{errormsg,jdbcType=VARCHAR},
+      mark = #{mark,jdbcType=VARCHAR},
+      start_day = #{startDay,jdbcType=TIMESTAMP},
+      last_day = #{lastDay,jdbcType=TIMESTAMP},
+      max_money = #{maxMoney,jdbcType=VARCHAR},
+      cnt_bad_member = #{cntBadMember,jdbcType=INTEGER},
+      cnt_good_member = #{cntGoodMember,jdbcType=INTEGER},
+      abnormal = #{abnormal,jdbcType=INTEGER},
+      active = #{active,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      first_day = #{firstDay,jdbcType=TIMESTAMP},
+      max_days = #{maxDays,jdbcType=VARCHAR},
+      tag_desc = #{tagDesc,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
